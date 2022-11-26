@@ -10,12 +10,8 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    "numpy",
-    "Pillow",
-    "flatbuffers",
-    "eclipse-zenoh-nightly==0.6.0b120221124",
-]
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
 
 test_requirements = [ ]
 
