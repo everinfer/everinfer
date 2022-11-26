@@ -11,10 +11,10 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    "numpy>=1.19",
+    "numpy",
     "flatbuffers==2.0",
     "eclipse-zenoh-nightly==0.6.0b120221124",
-    "Pillow>=9.0.1"
+    "Pillow"
 ]
 
 test_requirements = [ ]
