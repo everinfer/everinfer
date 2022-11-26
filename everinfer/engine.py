@@ -6,7 +6,7 @@ import queue
 import zenoh
 import numpy as np
 from PIL import Image
-from messages import (
+from everinfer.messages import (
     MSG_KEY,
     TaskMsg,
     AliveMsg,

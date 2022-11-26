@@ -31,7 +31,7 @@ class PipelineList(object):
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
             x = self._tab.Indirect(x)
-            from Pipeline import Pipeline
+            from .Pipeline import Pipeline
             obj = Pipeline()
             obj.Init(self._tab.Bytes, x)
             return obj

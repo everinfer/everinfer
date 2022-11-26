@@ -29,7 +29,7 @@ class Message(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             x = o + self._tab.Pos
-            from Identity import Identity
+            from .Identity import Identity
             obj = Identity()
             obj.Init(self._tab.Bytes, x)
             return obj
@@ -57,7 +57,7 @@ class Message(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            from Error import Error
+            from .Error import Error
             obj = Error()
             obj.Init(self._tab.Bytes, x)
             return obj

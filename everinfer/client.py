@@ -3,7 +3,7 @@ import uuid
 import json
 import requests
 import zenoh
-from engine import Engine
+from everinfer.engine import Engine
 
 
 class Client:

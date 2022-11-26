@@ -30,7 +30,7 @@ class NodeAlive(object):
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 32
-            from NodeJoined import NodeJoined
+            from .NodeJoined import NodeJoined
             obj = NodeJoined()
             obj.Init(self._tab.Bytes, x)
             return obj

@@ -6,7 +6,7 @@ import urllib
 import numpy as np
 import flatbuffers
 from PIL import Image as PILImage
-from proto import (
+from everinfer.proto import (
     Message,
     Payload,
     Pipeline,
