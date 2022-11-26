@@ -12,9 +12,9 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     "numpy",
-    "flatbuffers>=22.11.23",
+    "Pillow",
+    "flatbuffers",
     "eclipse-zenoh-nightly==0.6.0b120221124",
-    "Pillow"
 ]
 
 test_requirements = [ ]
