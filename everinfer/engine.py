@@ -74,6 +74,19 @@ class Engine:
             listen = list(set(listen + [f"tcp/0.0.0.0:{self.endpoint[1]}"]))
             config.insert_json5(zenoh.config.LISTEN_KEY, json.dumps(listen))
             self.endpoint = f"tcp/{self.endpoint[0]}:{self.endpoint[1]}"
+        
+        # join_key = f"source/join/{s_uuid_key}/{p_uuid_key}"
+        # print('requesting join on', join_key)
+        for response in session.get(f"source/join/{s_uuid_key}/{p_uuid_key}", zenoh.Queue()):
+            # print('response', response.ok.payload.decode('utf-8'))
+            data = json.loads(response.ok.payload)
+            if data['placement'] is not None:
+                # print("Joining placement", data['placement'])
+                config = session.config()
+                peers = json.loads(config.get_json(zenoh.config.CONNECT_KEY))
+                peers = list(set(peers + [data['placement']]))
+                config.insert_json5(zenoh.config.CONNECT_KEY, json.dumps(peers))
+            break
 
     def _task_qry_cb(self, query: zenoh.Query):
         t_base_key = f"task/{self.s_uuid_key}/{self.p_uuid_key}"
